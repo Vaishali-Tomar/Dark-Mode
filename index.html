@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toggle Circle</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    .container {
+      display: inline-block;
+      position: relative;
+    }
+    button {
+      height: 50px;
+      width: 100px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #f0f0f0;
+      border: none;
+    }
+    .circle {
+      width: 50px;
+      height: 50px;
+      background-color: #f1e0e0; 
+      border-radius: 50%;
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition: left 0.5s ease; 
+      z-index: 100;
+    }
+    button {
+      background-color: #c7c0ba; 
+      border-radius: 20px;
+    }
+    body.dark-mode .circle {
+      background-color: #222121; 
+      left: calc(100% - 25px); 
+    }
+    body.dark-mode {
+      background-color: #000;
+    }
+    .sun{
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: 0;
+    }
+    .moon{
+      position: absolute;
+      bottom: 0;
+      z-index: 0;
+    }
+    #h1{
+      color: #000;
+    }
+    h1{
+      font-size: 100px;
+    }
+  </style>
+</head>
+<body class="light-mode">
+  <div class="container">
+    <button id="toggleButton">
+      <div class="circle" id="circle">
+      </div>
+      <img src="https://img.icons8.com/?size=48&id=8EUmYhfLPTCF&format=png" class="sun" alt="">
+      <img src="https://img.icons8.com/?size=48&id=anfmaDWxCFY8&format=png" class="moon" alt="">
+    </button>
+  </div>
+  <h1 id="h1">Click on the Toggle Button</h1>
+
+  <script>
+    const body = document.body;
+    const toggleButton = document.getElementById('toggleButton');
+    const circle = document.getElementById('circle');
+    const h1 = document.getElementById("h1");
+
+    toggleButton.addEventListener('click', function() {
+      body.classList.toggle('dark-mode');
+      h1.style.color = "white";
+    });
+  </script>
+</body>
+</html>
